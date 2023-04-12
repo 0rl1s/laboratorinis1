@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+   <title>Mokyklos</title>
+
+   <h:outputStylesheet>
+      table, th, td {
+         border: solid 1px black;
+      }
+   </h:outputStylesheet>
+</h:head>
+
+<h:body>
+   <h1>Mokyklos</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:dataTable value="#{mokyklosJPA.allSchools}" var="mokykla">
+      <h:column>
+         <c:facet name="header">Id</c:facet>
+         #{mokykla.id}
+      </h:column>
+      <h:column>
+         <c:facet name="header">Pavadinimas</c:facet>
+         #{university.name}
+      </h:column>
+
+   </h:dataTable>
+
+   <nav>
+      <h:link outcome="add-school">Pridėti mokyklą</h:link>
+   </nav>
+</h:body>
+
+</html>

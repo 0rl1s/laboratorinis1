@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+   <title>Mokytojai</title>
+
+   <h:outputStylesheet>
+      table, th, td {
+         border: solid 1px black;
+      }
+   </h:outputStylesheet>
+</h:head>
+
+<h:body>
+   <h1>Mokytojai</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:dataTable value="#{mokytojasJPA.allTeachers}" var="mokytojas">
+      <h:column>
+         <c:facet name="header">Id</c:facet>
+         #{}
+      </h:column>
+      <h:column>
+         <c:facet name="header">First Name</c:facet>
+         #{lecturer.firstName}
+      </h:column>
+      <h:column>
+         <c:facet name="header">Last Name</c:facet>
+         #{lecturer.lastName}
+      </h:column>
+      <h:column>
+         <c:facet name="header">Name</c:facet>
+         #{lecturer.name}
+      </h:column>
+
+   </h:dataTable>
+
+   <nav>
+      <h:link outcome="add-lecturer">Add Lecturer</h:link>
+      <br/>
+      <h:link outcome="edit-lecturer">Edit first lecturer</h:link>
+      <br/>
+      <br/>
+   </nav>
+
+</h:body>
+
+</html>
