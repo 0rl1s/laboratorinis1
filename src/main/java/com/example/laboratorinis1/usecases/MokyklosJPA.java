@@ -1,7 +1,7 @@
-package com.example.lab1.usecases;
+package com.example.laboratorinis1.usecases;
 
-import com.example.lab1.entities.Mokykla;
-import com.example.lab1.persistence.MokyklosDAO;
+import com.example.laboratorinis1.entities.Mokykla;
+import com.example.laboratorinis1.persistence.MokyklosDAO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class MokyklosJPA {
 
     @Inject
-    private MokyklosDAO mokyklosDAO;
+    private MokyklosDAO mokyklos;
 
     @Getter
     @Setter
@@ -27,14 +27,10 @@ public class MokyklosJPA {
     @PostConstruct
     public void init() {loadAllSchools();}
 
-    public Mokykla findById (Long id) {return mokyklosDAO.find(id);}
+    public Mokykla findById (Long id) {return mokyklos.find(id);}
 
     @Transactional
-    public void addSchool (){
-        this.mokyklosDAO.persist(newSchool);
-    }
+    public void addSchool (){mokyklos.persist(newSchool);}
 
-    private void loadAllSchools(){
-        this.allSchools = mokyklosDAO.findAll();
-    }
+    private void loadAllSchools(){allSchools = mokyklos.findAll();}
 }

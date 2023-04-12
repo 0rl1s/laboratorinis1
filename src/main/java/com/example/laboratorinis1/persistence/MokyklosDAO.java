@@ -1,6 +1,6 @@
-package com.example.lab1.persistence;
+package com.example.laboratorinis1.persistence;
 
-import com.example.lab1.entities.Mokykla;
+import com.example.laboratorinis1.entities.Mokykla;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -14,7 +14,9 @@ public class MokyklosDAO {
 
     public List<Mokykla> findAll() {return em.createNamedQuery("Mokykla.findAll", Mokykla.class).getResultList();}
 
-    public void persist(Mokykla mokykla) {this.em.persist(mokykla);}
+    public void persist(Mokykla mokykla) {em.persist(mokykla);}
+
+    public void update(Mokykla mokykla) {em.merge(mokykla);}
 
     public Mokykla find(long id) {return em.find(Mokykla.class, id);}
 }

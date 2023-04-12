@@ -21,29 +21,21 @@
    <h:dataTable value="#{mokytojasJPA.allTeachers}" var="mokytojas">
       <h:column>
          <c:facet name="header">Id</c:facet>
-         #{}
+         #{mokytojas.id}
       </h:column>
       <h:column>
-         <c:facet name="header">First Name</c:facet>
-         #{lecturer.firstName}
+         <c:facet name="header">Vardas</c:facet>
+         #{mokytojas.vardas}
       </h:column>
       <h:column>
-         <c:facet name="header">Last Name</c:facet>
-         #{lecturer.lastName}
-      </h:column>
-      <h:column>
-         <c:facet name="header">Name</c:facet>
-         #{lecturer.name}
+         <c:facet name="header">Pavardė</c:facet>
+         #{mokytojas.pavarde}
       </h:column>
 
    </h:dataTable>
 
    <nav>
-      <h:link outcome="add-lecturer">Add Lecturer</h:link>
-      <br/>
-      <h:link outcome="edit-lecturer">Edit first lecturer</h:link>
-      <br/>
-      <br/>
+      <h:link outcome="add-teacher">Pridėti mokytoją</h:link>
    </nav>
 
 </h:body>

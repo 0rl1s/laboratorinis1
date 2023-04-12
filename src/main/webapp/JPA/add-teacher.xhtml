@@ -1,11 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+   <title>Pridėti mokytoją</title>
+</h:head>
+
+<h:body>
+   <h1>Pridėti mokytoją</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:form>
+      <div>
+         <h:outputLabel for="vardas">Vardas:</h:outputLabel>
+         <h:inputText id="vardas" value="#{mokytojasJPA.newTeacher.vardas}" required="true"/>
+      </div>
+      <div>
+         <h:outputLabel for="pavarde">Pavarde:</h:outputLabel>
+         <h:inputText id="pavarde" value="#{mokytojasJPA.newTeacher.pavarde}" required="true"/>
+      </div>
+      <h:commandButton value="Pridėti" actionListener="#{mokytojasJPA.addTeacher}"
+                       action="mokytojai?faces-redirect=true"/>
+   </h:form>
+</h:body>
+
 </html>

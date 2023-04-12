@@ -1,11 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+   <title>Pridėti mokyklą</title>
+</h:head>
+
+<h:body>
+   <h1>Pridėti mokyklą</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:form>
+      <div>
+         <h:outputLabel for="pavadinimas">Pavadinimas:</h:outputLabel>
+         <h:inputText id="pavadinimas" value="#{mokyklosJPA.newSchool.pavadinimas}" required="true"/>
+      </div>
+      <h:commandButton value="Pridėti" actionListener="#{mokyklosJPA.addSchool}"
+                       action="mokyklos?faces-redirect=true"/>
+   </h:form>
+</h:body>
+
 </html>

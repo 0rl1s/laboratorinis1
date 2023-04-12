@@ -1,11 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>Pridėti pamoką</title>
+</h:head>
+
+<h:body>
+    <h1>Pridėti pamoką</h1>
+    <nav>
+        <h:link outcome="/index">Pagrindinis</h:link>
+    </nav>
+    <h:form>
+        <div>
+            <h:outputLabel for="pavadinimas">Pavadinimas:</h:outputLabel>
+            <h:inputText id="pavadinimas" value="#{pamokosJPA.newLesson.pavadinimas}" required="true"/>
+        </div>
+        <div>
+            <h:outputLabel for="mokykla">Mokykla:</h:outputLabel>
+            <h:selectOneMenu id="mokykla" value="#{pamokosJPA.newLesson.mokykla.id}" required="true">
+                <c:forEach items="#{pamokosJPA.allSchools}" var="mokykla">
+                    <f:selectItem itemValue="#{mokykla.id}" itemLabel="#{mokykla.pavadinimas}"/>
+                </c:forEach>
+            </h:selectOneMenu>
+        </div>
+        <div>
+            <h:outputLabel for="mokytojas">Mokytojas:</h:outputLabel>
+            <h:selectOneMenu id="mokytojas" value="#{pamokosJPA.newLesson.mokytojas.id}" required="true">
+                <c:forEach items="#{mokytojasJPA.allTeachers}" var="mokytojas">
+                    <f:selectItem itemValue="#{mokytojas.id}" itemLabel="#{mokytojas.pavarde}"/>
+                </c:forEach>
+            </h:selectOneMenu>
+        </div>
+        <h:commandButton value="Pridėti" actionListener="#{pamokosJPA.addLesson}"
+                         action="pamokos?faces-redirect=true"/>
+    </h:form>
+</h:body>
+
 </html>
