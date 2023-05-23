@@ -1,2 +1,2 @@
-# laboratorinis1
-PSK lab works
+# Software Development lab works
+1st and 2nd lab works
