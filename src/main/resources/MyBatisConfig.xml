@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.example.laboratorinis1.mybatis.model.Mokytojas" alias="Mokytojas"/>
+        <typeAlias type="com.example.laboratorinis1.mybatis.model.Pamoka" alias="Pamoka"/>
+        <typeAlias type="com.example.laboratorinis1.mybatis.model.Mokykla" alias="Mokykla"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="Laboratorinis1DataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis/MokytojasMapper.xml"/>
+        <mapper resource="mybatis/PamokaMapper.xml"/>
+        <mapper resource="mybatis/MokyklaMapper.xml"/>
+    </mappers>
+</configuration>

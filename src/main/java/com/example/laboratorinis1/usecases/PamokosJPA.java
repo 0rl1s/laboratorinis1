@@ -5,6 +5,7 @@ import com.example.laboratorinis1.entities.Mokytojas;
 import com.example.laboratorinis1.entities.Pamoka;
 import com.example.laboratorinis1.persistence.MokyklosDAO;
 import com.example.laboratorinis1.persistence.PamokosDAO;
+import com.example.laboratorinis1.services.PamokaGenerator;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,8 @@ public class PamokosJPA {
     private List<Pamoka> allLessons;
     @Getter
     private List<Mokykla> allSchools;
+    @Inject
+    private PamokaGenerator pamokaGenerator;
 
     @PostConstruct
     public void init() {

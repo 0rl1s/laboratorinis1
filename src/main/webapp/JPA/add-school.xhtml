@@ -19,6 +19,14 @@
       <h:commandButton value="Pridėti" actionListener="#{mokyklosJPA.addSchool}"
                        action="mokyklos?faces-redirect=true"/>
    </h:form>
+
+   <h:form>
+      <h:commandButton value="Perstatyti mokyklą kitu adresu"
+                       disabled="#{adressGenerator.generationRunning}"
+                       actionListener="#{adressGenerator.generateNewAddress}"/>
+      <h:commandButton rendered="#{adressGenerator.generationRunning}" value="Refresh"/>
+      <h:outputText value=" #{adressGenerator.addressGenerationStatus}"/>
+   </h:form>
 </h:body>
 
 </html>

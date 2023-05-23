@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+   <title>Pamokos</title>
+
+   <h:outputStylesheet>
+      table, th, td {
+         border: solid 1px black;
+      }
+   </h:outputStylesheet>
+</h:head>
+
+<h:body>
+   <h1>Pamokos (MyBatis)</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:dataTable value="#{pamokosMyBatis.allLessons}" var="pamoka">
+      <h:column>
+         <c:facet name="header">Id</c:facet>
+         #{pamoka.id}
+      </h:column>
+
+      <h:column>
+         <c:facet name="header">Pavadinimas</c:facet>
+         #{pamoka.pavadinimas}
+      </h:column>
+
+      <h:column>
+         <c:facet name="header">Mokytojo ID</c:facet>
+         #{pamoka.mokytojas.id}
+      </h:column>
+      <h:column>
+         <c:facet name="header">Mokytojo vardas</c:facet>
+         #{pamoka.mokytojas.vardas}
+      </h:column>
+      <h:column>
+         <c:facet name="header">Mokytojo pavardė</c:facet>
+         #{pamoka.mokytojas.pavarde}
+      </h:column>
+
+      <h:column>
+         <c:facet name="header">Mokyklos ID</c:facet>
+         #{pamoka.mokykla.id}
+      </h:column>
+      <h:column>
+         <c:facet name="header">Mokyklos pavadinimas</c:facet>
+         #{pamoka.mokykla.pavadinimas}
+      </h:column>
+   </h:dataTable>
+
+   <nav>
+      <h:link outcome="add-lesson">Pridėti pamoką</h:link>
+   </nav>
+</h:body>
+
+</html>

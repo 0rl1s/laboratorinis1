@@ -10,7 +10,8 @@ import java.util.Set;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Mokytojas.findAll", query = "select m from Mokytojas m")
+        @NamedQuery(name = "Mokytojas.findAll", query = "select m from Mokytojas m"),
+        @NamedQuery(name = "Mokytojas.mokykla", query = "select m.mokyklos.size from Mokytojas m")
 })
 @Getter
 @Setter
@@ -23,12 +24,19 @@ public class Mokytojas {
     private String vardas;
     @Column(name = "PAVARDE")
     private String pavarde;
+    @Column(name = "SLAPYVARDIS")
+    private String slapyvardis;
 
     @OneToMany(mappedBy = "mokytojas")
     private List<Pamoka> pamokos;
 
     @ManyToMany(mappedBy = "mokytojuPamokos")
     private Set<Mokykla> mokyklos;
+
+    @Version
+    @Column(name = "opt_lock_version")
+    private int optLockVersion;
+
 
     @Override
     public boolean equals(Object other) {

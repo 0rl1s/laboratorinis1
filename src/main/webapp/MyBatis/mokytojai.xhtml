@@ -14,11 +14,11 @@
 </h:head>
 
 <h:body>
-   <h1>Mokytojai</h1>
+   <h1>Mokytojai (MyBatis)</h1>
    <nav>
       <h:link outcome="/index">Pagrindinis</h:link>
    </nav>
-   <h:dataTable value="#{mokytojasJPA.allTeachers}" var="mokytojas">
+   <h:dataTable value="#{mokytojasMyBatis.allTeachers}" var="mokytojas">
       <h:column>
          <c:facet name="header">Id</c:facet>
          #{mokytojas.id}
@@ -28,20 +28,13 @@
          #{mokytojas.vardas}
       </h:column>
       <h:column>
-         <c:facet name="header">Pavardė</c:facet>
+         <c:facet name="header">Pavarde</c:facet>
          #{mokytojas.pavarde}
       </h:column>
-      <h:column>
-         <c:facet name="header">Slapyvardis</c:facet>
-         #{mokytojas.slapyvardis}
-      </h:column>
-
    </h:dataTable>
 
    <nav>
       <h:link outcome="add-teacher">Pridėti mokytoją</h:link>
-      <br/>
-      <h:link outcome="edit-teacher">Redaguoti pirmą mokytoją</h:link>
    </nav>
 
 </h:body>

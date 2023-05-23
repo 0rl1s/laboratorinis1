@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+   <title>Pridėti mokytoją</title>
+</h:head>
+
+<h:body>
+   <h1>Pridėti mokytoją (MyBatis)</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:form>
+      <div>
+         <h:outputLabel for="vardas">Vardas:</h:outputLabel>
+         <h:inputText id="vardas" value="#{mokytojasMyBatis.newTeacher.vardas}" required="true"/>
+      </div>
+      <div>
+         <h:outputLabel for="pavarde">Pavarde:</h:outputLabel>
+         <h:inputText id="pavarde" value="#{mokytojasMyBatis.newTeacher.pavarde}" required="true"/>
+      </div>
+      <h:commandButton value="Pridėti" actionListener="#{mokytojasMyBatis.addTeacher}"
+                       action="mokytojai?faces-redirect=true"/>
+   </h:form>
+</h:body>
+
+</html>

@@ -27,4 +27,6 @@ public class MokytojaiDAO {
     }
 
     public Mokytojas findbyId(long id) {return em.find(Mokytojas.class, id);}
+
+    public String schools() {return em.createNamedQuery("Mokytojas.mokykla", Mokytojas.class).toString();}
 }

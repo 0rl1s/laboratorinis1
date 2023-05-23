@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+   <title>Pridėti pamoką</title>
+</h:head>
+
+<h:body>
+   <h1>Pridėti pamoką (MyBatis)</h1>
+   <nav>
+      <h:link outcome="/index">Pagrindinis</h:link>
+   </nav>
+   <h:form>
+      <div>
+         <h:outputLabel for="pavadinimas">Pavadinimas:</h:outputLabel>
+         <h:inputText id="pavadinimas" value="#{pamokosMyBatis.newLesson.pavadinimas}" required="true"/>
+      </div>
+      <div>
+         <h:outputLabel for="mokykla">Mokykla:</h:outputLabel>
+         <h:selectOneMenu id="mokykla" value="#{pamokosMyBatis.newLesson.mokyklosId}" required="true">
+            <c:forEach items="#{mokyklosMyBatis.allSchools}" var="mokykla">
+               <f:selectItem itemValue="#{mokykla.id}" itemLabel="#{mokykla.pavadinimas}"/>
+            </c:forEach>
+         </h:selectOneMenu>
+      </div>
+      <div>
+         <h:outputLabel for="mokytojas">Mokytojas:</h:outputLabel>
+         <h:selectOneMenu id="mokytojas" value="#{pamokosMyBatis.newLesson.mokytojoId}" required="true">
+            <c:forEach items="#{mokytojasMyBatis.allTeachers}" var="mokytojas">
+               <f:selectItem itemValue="#{mokytojas.id}" itemLabel="#{mokytojas.pavarde}"/>
+
+            </c:forEach>
+         </h:selectOneMenu>
+      </div>
+      <h:commandButton value="Pridėti" actionListener="#{pamokosMyBatis.addLesson}"
+                       action="pamokos?faces-redirect=true"/>
+   </h:form>
+</h:body>
+
+</html>

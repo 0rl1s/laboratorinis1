@@ -31,6 +31,10 @@ public class Pamoka {
     @JoinColumn(name = "MOKYKLOS_ID", nullable = false)
     private Mokykla mokykla;
 
+    @Version
+    @Column(name = "opt_lock_version")
+    private int optLockVersion;
+
     @Override
     public boolean equals(Object other) {
         if (other == null) {
